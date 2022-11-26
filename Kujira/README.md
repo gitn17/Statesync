@@ -28,7 +28,7 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.kujira/config/config.toml
 ```
 ## Restart the service
 ```bash
-sudo systemctl restart kujirad && journalctl -u kujirad -f
+sudo systemctl restart kujirad && sudo journalctl -u kujirad -f
 ```
 ## Disable statesync after synchronization
 ```bash
