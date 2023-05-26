@@ -6,6 +6,10 @@ sudo apt install -y curl jq
 ```bash
 sudo systemctl stop kujirad
 ```
+## Backup priv_validator_state.json
+```bash
+cp $HOME/.kujira/data/priv_validator_state.json $HOME/.kujira/priv_validator_state.json.bak
+```
 ## Reset database
 ```bash
 kujirad tendermint unsafe-reset-all --home $HOME/.kujira --keep-addr-book
@@ -24,6 +28,10 @@ sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$RPC,$RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.kujira/config/config.toml
+```
+## Restore priv_validator_state.json
+```bash
+mv $HOME/.kujira/priv_validator_state.json.bak $HOME/.kujira/data/priv_validator_state.json
 ```
 ## Restart the service
 ```bash
