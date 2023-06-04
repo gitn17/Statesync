@@ -14,10 +14,6 @@ cp $HOME/.quicksilverd/data/priv_validator_state.json $HOME/.quicksilverd/priv_v
 ```bash
 quicksilverd tendermint unsafe-reset-all --home $HOME/.quicksilverd --keep-addr-book
 ```
-## Download addrbook if needed
-```bash
-curl -s https://ghostinnet.com/quicksilver/addrbook.json > $HOME/.quicksilverd/config/addrbook.json
-```
 ## Fetch up to date statesync configuration
 ```bash
 RPC="https://quicksilver.rpc.ghostinnet.com:443"
